@@ -1,15 +1,18 @@
 import type React from "react";
 import "@/styles/globals.css";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+});
 
 export const metadata: Metadata = {
-  title: "DeepActiv8 - Technology Consulting & Digital Transformation",
+  title: "Quantix - Technology Consulting & Digital Transformation",
   description:
-    "Expert technology consulting services that drive digital transformation, optimize operations, and accelerate business growth. Transform your business with DeepActiv8.",
+    "Expert technology consulting services that drive digital transformation, optimize operations, and accelerate business growth. Transform your business with Quantix.",
 };
 
 export default function RootLayout({
@@ -19,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${geistMono.variable} font-mono`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

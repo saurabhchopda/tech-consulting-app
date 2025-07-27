@@ -40,7 +40,9 @@ export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
 
   useEffect(() => {
     setMounted(true);
@@ -117,11 +119,64 @@ export default function LandingPage() {
   const projects = [
     {
       id: 1,
+      title: "AI-Powered Credit Risk Assessment System",
+      category: "Machine Learning & Finance",
+      client: "Regional Bank",
+      duration: "10 months",
+      icon: <TrendingUp className="size-6" />,
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+      shortDescription:
+        "ML-driven credit scoring achieving 94% accuracy in risk prediction",
+      fullDescription:
+        "Developed an advanced machine learning system that analyzes customer financial data, transaction patterns, and market indicators to predict credit risk with 94% accuracy. The system processes 50,000+ loan applications monthly, reducing default rates by 35% while improving approval speed by 60%.",
+      technologies: [
+        "Python",
+        "Scikit-learn",
+        "TensorFlow",
+        "PostgreSQL",
+        "Redis",
+      ],
+      outcomes: [
+        "94% accuracy in credit risk prediction",
+        "35% reduction in loan defaults",
+        "60% faster loan approval process",
+        "Processing 50,000+ applications monthly",
+      ],
+    },
+    {
+      id: 2,
+      title: "Personalized Product Recommendation Engine",
+      category: "Machine Learning & E-commerce",
+      client: "Online Retailer",
+      duration: "6 months",
+      icon: <Eye className="size-6" />,
+      image:
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
+      shortDescription:
+        "AI-powered recommendation system boosting sales by 40%",
+      fullDescription:
+        "Built a sophisticated recommendation engine using collaborative filtering and content-based algorithms that analyzes user behavior, purchase history, and product attributes to deliver personalized product suggestions. The system serves 2M+ daily recommendations with real-time learning capabilities.",
+      technologies: [
+        "Python",
+        "Apache Spark",
+        "Redis",
+        "Elasticsearch",
+        "Kubernetes",
+      ],
+      outcomes: [
+        "40% increase in conversion rates",
+        "25% improvement in average order value",
+        "2M+ daily personalized recommendations",
+        "Real-time learning and adaptation",
+      ],
+    },
+    {
+      id: 3,
       title: "AI-Powered Customer Analytics Platform",
       category: "Machine Learning & Analytics",
       client: "E-commerce Retail Chain",
       duration: "6 months",
-      icon: <Brain className="size-6" />,
+      icon: <BarChart3 className="size-6" />,
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
       shortDescription:
@@ -142,48 +197,6 @@ export default function LandingPage() {
         "Real-time recommendations for 10M+ customers",
       ],
     },
-    {
-      id: 2,
-      title: "Predictive Maintenance Dashboard",
-      category: "IoT & Data Analytics",
-      client: "Manufacturing Company",
-      duration: "4 months",
-      icon: <BarChart3 className="size-6" />,
-      image:
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center",
-      shortDescription:
-        "Built IoT data pipeline reducing equipment downtime by 45%",
-      fullDescription:
-        "Created an end-to-end IoT data pipeline that collects sensor data from 500+ manufacturing equipment units, applies machine learning algorithms to predict failures, and displays actionable insights through an intuitive dashboard. The system prevents costly breakdowns and optimizes maintenance schedules.",
-      technologies: ["Python", "Apache Spark", "InfluxDB", "Grafana", "Docker"],
-      outcomes: [
-        "45% reduction in unplanned downtime",
-        "60% improvement in maintenance efficiency",
-        "$2.3M annual cost savings",
-        "Real-time monitoring of 500+ equipment units",
-      ],
-    },
-    {
-      id: 3,
-      title: "Computer Vision Quality Control System",
-      category: "Computer Vision & AI",
-      client: "Automotive Manufacturer",
-      duration: "8 months",
-      icon: <Eye className="size-6" />,
-      image:
-        "https://images.unsplash.com/photo-1565440962783-e5b61c6b41c0?w=600&h=400&fit=crop&crop=center",
-      shortDescription:
-        "Automated quality inspection achieving 99.8% accuracy in defect detection",
-      fullDescription:
-        "Implemented a computer vision system that automatically inspects automotive parts on the production line, detecting defects with 99.8% accuracy. The system processes 10,000+ parts per day, significantly reducing manual inspection time and improving overall product quality.",
-      technologies: ["Python", "OpenCV", "PyTorch", "FastAPI", "MongoDB"],
-      outcomes: [
-        "99.8% defect detection accuracy",
-        "80% reduction in manual inspection time",
-        "15% improvement in overall product quality",
-        "Processing 10,000+ parts daily",
-      ],
-    },
   ];
 
   return (
@@ -198,7 +211,7 @@ export default function LandingPage() {
             <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
               D
             </div>
-            <span>DeepActiv8</span>
+            <span>Quantix</span>
           </div>
           <nav className="hidden md:flex gap-8">
             <Link
@@ -364,7 +377,7 @@ export default function LandingPage() {
                 Technology Consulting
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-                Transform Your Business with DeepActiv8
+                Transform Your Business with Quantix
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Expert technology consulting services that drive digital
@@ -411,7 +424,7 @@ export default function LandingPage() {
                   src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center"
                   width={1280}
                   height={720}
-                  alt="DeepActiv8 dashboard"
+                  alt="Quantix dashboard"
                   className="w-full h-auto"
                   priority
                 />
@@ -514,15 +527,16 @@ export default function LandingPage() {
                 className="rounded-full px-4 py-1.5 text-sm font-medium"
                 variant="secondary"
               >
-                About DeepActiv8
+                About Quantix
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Proven Expertise, Trusted Results
+                Innovative Expertise, Future-Focused Results
               </h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                With over a decade of experience in technology consulting, we&apos;ve
-                helped 200+ businesses transform their operations and achieve
-                sustainable growth.
+                As a fresh force in technology consulting, our team of
+                experienced professionals is dedicated to delivering
+                cutting-edge solutions that drive digital transformation and
+                sustainable growth for businesses like yours.
               </p>
             </motion.div>
 
@@ -534,36 +548,8 @@ export default function LandingPage() {
                 transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
-                <h3 className="text-2xl font-bold">Why Choose DeepActiv8?</h3>
+                <h3 className="text-2xl font-bold">Why Choose Quantix?</h3>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="size-6 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1">
-                      <Check className="size-4" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">
-                        10+ Years of Experience
-                      </h4>
-                      <p className="text-muted-foreground text-sm">
-                        Deep expertise across multiple industries and technology
-                        stacks
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="size-6 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1">
-                      <Check className="size-4" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">
-                        200+ Successful Projects
-                      </h4>
-                      <p className="text-muted-foreground text-sm">
-                        Proven track record of delivering complex solutions on
-                        time and budget
-                      </p>
-                    </div>
-                  </div>
                   <div className="flex items-start gap-3">
                     <div className="size-6 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1">
                       <Check className="size-4" />
@@ -575,6 +561,31 @@ export default function LandingPage() {
                       <p className="text-muted-foreground text-sm">
                         AWS, Azure, Google Cloud, and other leading technology
                         certifications
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="size-6 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1">
+                      <Check className="size-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">Tailored Solutions</h4>
+                      <p className="text-muted-foreground text-sm">
+                        Customized strategies for your unique business needs
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="size-6 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mt-1">
+                      <Check className="size-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">
+                        Proven Track Record
+                      </h4>
+                      <p className="text-muted-foreground text-sm">
+                        Successfully delivered complex solutions on time and
+                        budget
                       </p>
                     </div>
                   </div>
@@ -626,18 +637,6 @@ export default function LandingPage() {
               className="text-center"
             >
               <div className="inline-flex items-center gap-8 p-8 rounded-2xl bg-muted/30 border">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">200+</div>
-                  <div className="text-sm text-muted-foreground">
-                    Projects Delivered
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">10+</div>
-                  <div className="text-sm text-muted-foreground">
-                    Years Experience
-                  </div>
-                </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">98%</div>
                   <div className="text-sm text-muted-foreground">
@@ -1261,8 +1260,9 @@ export default function LandingPage() {
                 Ready to Accelerate Your Digital Journey?
               </h2>
               <p className="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl">
-                Join industry leaders who have transformed their businesses with our 
-                expert technology consulting. Let&apos;s turn your vision into reality.
+                Join industry leaders who have transformed their businesses with
+                our expert technology consulting. Let&apos;s turn your vision
+                into reality.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <Button
@@ -1282,7 +1282,8 @@ export default function LandingPage() {
                 </Button>
               </div>
               <p className="text-sm text-primary-foreground/80 mt-4">
-                No obligation. Free initial consultation. Custom solutions designed for you.
+                No obligation. Free initial consultation. Custom solutions
+                designed for you.
               </p>
             </motion.div>
           </div>
@@ -1296,7 +1297,7 @@ export default function LandingPage() {
                 <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
                   D
                 </div>
-                <span>DeepActiv8</span>
+                <span>Quantix</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Expert technology consulting services that drive digital
